@@ -20,10 +20,9 @@ const Slideshow = () => {
 
     if (isVideo(slides[current])) {
       // If current slide is video, wait until video ends or loop every 5 sec
-      const video = videoRef.current;
+      const video = videoRef.current as HTMLVideoElement | null;
       if (video) {
         // When video ends, move to next slide
-        const video = document.getElementById("myVideo") as HTMLVideoElement;
         video.addEventListener("ended", handleEnded);
 
         return () => video.removeEventListener("ended", handleEnded);
