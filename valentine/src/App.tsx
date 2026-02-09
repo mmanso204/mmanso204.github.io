@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import './App.css';
-import Slideshow from './slideshow.jsx';
+import Slideshow from './slideshow.tsx';
 
 function App() {
 
@@ -11,7 +11,8 @@ function App() {
       const now = new Date();
       const year = now.getFullYear();
       const feb14 = new Date(`${year}-02-14T00:00:00`);
-      const diff = feb14 - now;
+      const diff = feb14.getTime() - now.getTime(); // milliseconds
+
 
       if (diff <= 0) {
         setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
@@ -33,7 +34,7 @@ function App() {
   const [yesSize, setYesSize] = useState(40);
   const [noSize, setNoSize] = useState(40);
   const [answeredYes, setAnsweredYes] = useState(false);
-  const audioRef = useRef(null); // ref for audio element
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   const handleNoClick = () => {
     setYesSize(prev => prev + 10);
@@ -43,7 +44,7 @@ function App() {
   const handleYesClick = () => {
     setAnsweredYes(true);
     if (audioRef.current) {
-      audioRef.current.play(); // play the song
+      audioRef.current?.play();
     }
   };
 
