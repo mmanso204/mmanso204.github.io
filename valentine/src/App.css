@@ -1,0 +1,12 @@
+/* Trippy animated rainbow pink background */
+@keyframes rainbowFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.trippy-bg {
+  background: linear-gradient(270deg, #ff9ac2, #ff6fbf, #ffb3d9, #ff85c2, #ffc0e0);
+  background-size: 1000% 1000%;
+  animation: rainbowFlow 20s ease infinite;
+}
