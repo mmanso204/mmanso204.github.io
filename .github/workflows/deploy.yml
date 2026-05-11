@@ -26,11 +26,11 @@ jobs:
 
       - name: Build Theresa_birthday
         working-directory: Theresa_birthday
-        run: npm ci && npm run build
+        run: npm install && npm run build
 
       - name: Build valentine
         working-directory: valentine
-        run: npm ci && npm run build
+        run: npm install && npm run build
 
       - name: Assemble site
         run: |
